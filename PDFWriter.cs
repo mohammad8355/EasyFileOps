@@ -23,10 +23,12 @@ public class PDFWriter : IDisposable
         try
         {
             _printDocument = printDocument;
-            _printDocument.PrintController = new StandardPrintController();
+        
             _printDocument.PrinterSettings.PrintToFile = true;
+          
             _printDocument.PrinterSettings.PrintFileName = _stream.Name;
             _printDocument.Print();
+            _printDocument.PrintController = new StandardPrintController();
             return new OperationResult()
             {
                 IsSuccess = true,

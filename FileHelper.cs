@@ -37,7 +37,7 @@ public class FileHelper : IFileHelper
                 var writer = new PDFWriter(stream);
 
                 var result = writer.Write(printDocument);
-          
+                writer.Dispose();
             return new OperationResult()
             {
                 IsSuccess = result.IsSuccess,
