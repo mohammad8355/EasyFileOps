@@ -29,7 +29,7 @@ public class PDFWriter : IDisposable
             _printDocument.PrinterSettings.PrintFileName = _stream.Name;
             _printDocument.Print();
             _printDocument.PrintController = new StandardPrintController();
-            return new OperationResult()
+            return new OperationResult
             {
                 IsSuccess = true,
                 Message = "success print pdf"

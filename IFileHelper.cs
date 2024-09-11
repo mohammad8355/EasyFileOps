@@ -15,4 +15,5 @@ public interface IFileHelper
     public OperationResult WriteLine(string path, StringBuilder content,bool IsAppend);
     public Task<OperationResult> WriteLineAsync(string path, StringBuilder content, bool IsAppend);
     public Task<OperationResult> ConvertTxtToPDF(string PDfpath,string TxtPath,string fontFamily,float fontSize);
+    public Task<OperationResult> ConvertTxtToHTML(string path);
 }

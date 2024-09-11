@@ -11,6 +11,30 @@ namespace EasyFileOps;
 
 public class FileHelper : IFileHelper
 {
+    public async Task<OperationResult> ConvertTxtToHTML(string path)
+    {
+        try
+        {
+            var dotIndex = path.IndexOf('.');
+            if (dotIndex == -1) return new OperationResult() { IsSuccess = false, Message = "Invalid Path" };
+            var modifiedString = path.Substring(0, dotIndex + 1) + "html";
+            File.Move(path, modifiedString);
+            return new OperationResult()
+            {
+                IsSuccess = true,
+                Message = "SuccessFully Convert text to html"
+            };
+        }
+        catch(Exception ex)
+        {
+            return new OperationResult()
+            {
+                IsSuccess = false,
+                Message = ex.Message,
+            };     
+        }
+
+    }
 
     /// <summary>
     /// convert text file to pdf
